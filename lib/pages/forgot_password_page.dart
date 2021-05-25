@@ -18,40 +18,71 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF927FC4),
-      appBar: AppBar(
-        title: Text("Esqueci senha"),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF0093E9),
+                Color(0xff80D0C7),
+              ]
+          )
       ),
-      body: Padding(
-        padding:const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextFormField(
-                validator: EmailValidator(errorText:'Entre com endereço de e-mail válido'),
-                controller: emailController,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2.0)),
-                  labelText: "Email",
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text("Esqueci senha"),
+          flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFF0093E9),
+                      Color(0xff80D0C7),
+                    ]
                 ),
-              ),
-              ElevatedButton(
-                  onPressed: (){
-                    context.read<AuthenticationService>().passwordReset(
-                      email: emailController.text.trim(),
-                      context: context
-                    );
-                    Navigator.pop(context, MaterialPageRoute(builder: (context) => SignInPage()));
-                  },
-                  child: Text("Recuperar"),
-              ),
-            ],
+              )
           ),
-        ) ,
+        ),
+        body: Padding(
+          padding:const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextFormField(
+                  cursorColor: Colors.black,
+                  validator: EmailValidator(errorText:'Entre com endereço de e-mail válido'),
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    //focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2.0)),
+                    labelText: "Email",
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(20),
+                    )
+                  ),
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      context.read<AuthenticationService>().passwordReset(
+                        email: emailController.text.trim(),
+                        context: context
+                      );
+                      Navigator.pop(context, MaterialPageRoute(builder: (context) => SignInPage()));
+                    },
+                    child: Text("Recuperar"),
+                ),
+              ],
+            ),
+          ) ,
+        ),
       ),
     );
   }

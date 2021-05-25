@@ -14,8 +14,6 @@ import 'forgot_password_page.dart';
 class SignInPage extends StatefulWidget {
 
   //final AuthenticationService aut = new AuthenticationService(_firebaseAuth);
-
-
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -27,95 +25,136 @@ class _SignInPageState extends State<SignInPage>{
   pageColors colors = new pageColors();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: colors.backgroundColor,
-      appBar: AppBar(
-        title: Text("Login"),
+    return Container(
+      decoration: new BoxDecoration(
+          gradient: new LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF0093E9),
+                Color(0xff80D0C7),
+              ]
+          )
       ),
-      body: Padding(
-        
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            child: Column(
-              mainAxisAlignment:  MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    validator: EmailValidator(errorText:'Entre com endereço de e-mail válido'),
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2.0)),
-                      labelText: "Email",
+      //backgroundColor: Colors.transparent,
+
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text("Login"),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF0093E9),
+                Color(0xff80D0C7),
+              ]
+            ),
+            )
+          ),
+        ),
+        body: Center(
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child:
+              Column(
+                mainAxisAlignment:  MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      cursorColor: Colors.black,
+                      validator: EmailValidator(errorText:'Entre com endereço de e-mail válido'),
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        //focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2.0)),
+                        labelText: "Email",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(20),
+                        )
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
-                    validator: LengthRangeValidator(min: 6, max: 20, errorText: 'Senha tem que estar entre 6 e 20 caracteres'),
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      errorBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.red, width: 2.0)),
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2.0)),
-                      labelText: "Senha",
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      cursorColor: Colors.black,
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      validator: LengthRangeValidator(min: 6, max: 20, errorText: 'Senha tem que estar entre 6 e 20 caracteres'),
+                      controller: passwordController,
+                      decoration: InputDecoration(
+                        errorBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.red, width: 2.0), borderRadius: BorderRadius.circular(20)),
+                        //focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2.0)),
+                        labelText: "Senha",
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(20),
+                        )
+                      ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment:  MainAxisAlignment.center,
-                  children: [
+                  Row(
+                    mainAxisAlignment:  MainAxisAlignment.center,
+                    children: [
 
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          context.read<AuthenticationService>().signIn(
-                            email: emailController.text.trim(),
-                            password: passwordController.text.trim(),
-                            context: context,
-                          );
-                        },
-                        child: Text("  Logar  "),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            context.read<AuthenticationService>().signIn(
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                              context: context,
+                            );
+                          },
+                          label: Text("  Logar  "),
+                          icon: Icon(Icons.login),
+                        ),
                       ),
-                    ),
 
 
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {
-
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);
-                          /*context.read<AuthenticationService>().signUp(
-                            email: emailController.text.trim(),
-                            password: passwordController.text.trim(),
-                            );*/
-                        },
-                        child: Text("Registrar"),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage()),);
+                            /*context.read<AuthenticationService>().signUp(
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                              );*/
+                          },
+                          label: Text("Registrar"),
+                          icon: Icon(Icons.badge),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordPage()),),
-                        child: Text("Esqueci senha"),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton.icon(
+                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordPage()),),
+                          label: Text("Esqueci senha"),
+                          icon: Icon(Icons.contact_support_outlined),
+                        ),
                       ),
-                    ),
-                  ]
-                )
-              ],
+                    ]
+                  )
+                ],
+              ),
             ),
           ),
         ),
