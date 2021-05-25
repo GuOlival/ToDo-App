@@ -6,7 +6,7 @@ Application made with Flutter that store tasks added by authenticated users
 
 ### - Store tasks at cloud
 
-#### Feature to delete task sliding to right
+#### - Feature to delete task sliding to right
 
 ### - Login system with authentication in Firebase
 
