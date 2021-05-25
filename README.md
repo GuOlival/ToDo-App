@@ -4,7 +4,7 @@ Application made with Flutter that store tasks added by authenticated users
 
 ## Avaible features
 
-### - Store tasks at cloud
+### -- Store tasks at cloud
 
 #### - Feature to delete task sliding to right
 
