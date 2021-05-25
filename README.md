@@ -1,8 +1,8 @@
-## ToDo Application
+# ToDo Application
 
-Store at Firebase Cloud tasks that were add by users.
+Application made with Flutter that 
 
-# What work at app?
+## Avaible features
 - Store tasks at cloud
 - Login system with authentication in Firebase
 - Register system
