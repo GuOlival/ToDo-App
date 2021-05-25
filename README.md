@@ -10,9 +10,9 @@ Application made with Flutter that store tasks added by authenticated users
 #### Feature to delete task sliding to right
 <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/f0ce5a49-14df-4fa7-94f2-53358ddee8fe.jpeg">
 
-### - Login system with authentication in Firebase
+- Login system with authentication in Firebase
 <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/c32375cb-0fa6-48e8-b292-582160d1db22.jpeg">
-### - Register system
+- Register system
 <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/7a022a4f-cd6f-4e5c-98e3-07f13e54bc2f.jpeg">
-### - Recover password
+- Recover password
 <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/23bf67cf-ed7a-4e25-a2f4-16ccd849561e.jpeg">
