@@ -2,7 +2,7 @@
 
 Application made with Flutter that store tasks added by authenticated users
 
-## Avaible features
+## Available features
 
 ###  Store tasks at cloud
 
