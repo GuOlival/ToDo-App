@@ -1,15 +1,20 @@
 
 
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Metodos {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-  createTodos(String input, String uid) {
+
+  createTodos(String input, String uid, String diaEscolhido, String horarioEscolhido) {
     DocumentReference documentReference = firestore.collection(uid).doc(input);
     Map<String, dynamic>todos = {
-      "todoTitle": input
+      "todoTitle": input,
+      "dia": diaEscolhido,
+      "horario": horarioEscolhido,
     };
     documentReference.set(todos).whenComplete(() => print("$input created"));
   }
@@ -32,12 +37,31 @@ class Metodos {
       ),
       actions: <Widget>[
         FlatButton(
-        onPressed: (){createTodos(input, uid); Navigator.pop(context);},
+        onPressed: (){
+          //createTodos(input, uid);
+          //createSelectDate(context);
+          Navigator.pop(context);
+          },
         child: Text("Add"))
         ],
     );
   }
 
+  createSelectDate(BuildContext context) async{
+    final DateTime newDate = await showDatePicker(
+        context: context, 
+        initialDate: DateTime.now(), 
+        firstDate: DateTime(2021,5),
+        lastDate: DateTime(2025,12),
+        helpText: "Selecione o dia da sua tarefa"
+    );
+    if(newDate != null)
+      {
+        print(newDate);
+        return newDate;
+      }
+
+  }
 
 
 }

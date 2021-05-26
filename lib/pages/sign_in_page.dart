@@ -22,38 +22,16 @@ class _SignInPageState extends State<SignInPage>{
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  pageColors colors = new pageColors();
+  pageColors pageColor = new pageColors();
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: new BoxDecoration(
-          gradient: new LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xFF0093E9),
-                Color(0xff80D0C7),
-              ]
-          )
-      ),
-      //backgroundColor: Colors.transparent,
-
+      decoration: pageColor.backgroundGradient() ,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text("Login"),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xFF0093E9),
-                Color(0xff80D0C7),
-              ]
-            ),
-            )
-          ),
+          flexibleSpace: pageColor.appBarGradient(),
         ),
         body: Center(
           child: SingleChildScrollView(

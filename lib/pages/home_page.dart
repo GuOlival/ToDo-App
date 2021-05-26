@@ -4,10 +4,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/colors.dart';
+import 'package:todo_app/pages/create_task_page.dart';
 import '../authentication_service.dart';
+import '../colors.dart';
 import '../metodos.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
 class HomePage extends StatefulWidget {
+
   @override
   Widget build(BuildContext context)
   {
@@ -36,24 +41,18 @@ class _HomePageState extends State<HomePage> {
   String input = "";
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
+  DateTime diaEscolhido = DateTime.now();
   Metodos comando = new Metodos();
+  pageColors pageColor = new pageColors();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: new BoxDecoration(
-          gradient: new LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xFF0093E9),
-                Color(0xff80D0C7),
-              ]
-          )
-      ),
+      decoration: pageColor.backgroundGradient(),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Tarefas a fazer"),
+          flexibleSpace: pageColor.appBarGradient(),
         ),
         backgroundColor: Colors.transparent,
         floatingActionButton:
@@ -71,9 +70,13 @@ class _HomePageState extends State<HomePage> {
                 child: Icon(Icons.add),
                 backgroundColor: Colors.green,
                 label: "Add",
-                onTap: (){showDialog(context: context, builder: (BuildContext context){
-                    return comando.createAlertDialog(input, context, auth.currentUser.uid);
-                });},
+                onTap: (){//showDialog(context: context, builder: (BuildContext context){
+                    //return comando.createAlertDialog(input, context, auth.currentUser.uid);
+                //}
+                    //diaEscolhido =  comando.createSelectDate(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CreateTaskPage()),);
+            //    );
+                  },
               ),
               SpeedDialChild(
                   child: Icon(Icons.logout),
