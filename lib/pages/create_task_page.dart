@@ -63,7 +63,25 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
                         icon: Icon(Icons.calendar_today),
                       ),
                     ),
-                    Text("Dia escolhido ${DateFormat('dd-MM-yyyy').format(diaEscolhido)}"),
+                    Container(
+                        child: Text("Dia escolhido ${DateFormat('dd-MM-yyyy').format(diaEscolhido)}"),
+                        decoration: new BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xFFFFFFFF),
+                              Color(0xffffffff),
+                            ]
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                        shape: BoxShape.rectangle,
+                        border: new Border.all(
+                          color:Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Row(
@@ -76,7 +94,27 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
                         label: Text(" Abrir Relógio  ")
                       ),
                     ),
-                    Text("Horario Escolhido ${horarioEscolhido.format(context)}"),
+                    Container(
+                        decoration: new BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFFFFFFF),
+                                Color(0xffffffff),
+                              ]
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                          shape: BoxShape.rectangle,
+                          border: new Border.all(
+                            color:Colors.white,
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Text("Horario Escolhido ${horarioEscolhido.format(context)}"
+
+                        ),
+                    ),
                   ],
                 ),
                 Padding(
