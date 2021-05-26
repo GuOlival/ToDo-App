@@ -117,7 +117,9 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(8)
                       ),
                       child: ListTile(
-                        title: Text(documentSnapshot["todoTitle"]),
+                        title: Text("${documentSnapshot["dia"]} - "
+                            "${documentSnapshot["horario"]} - "
+                            "${documentSnapshot["todoTitle"]}"),
                         trailing: IconButton(
                             icon: Icon(Icons.delete, color: Colors.red,
                             ),

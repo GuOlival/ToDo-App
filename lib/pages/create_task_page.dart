@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_app/pages/home_page.dart';
 
 import '../colors.dart';
 import '../metodos.dart';
@@ -90,6 +91,7 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
                               auth.currentUser.uid,
                               DateFormat('dd-MM-yyyy').format(diaEscolhido),
                               horarioEscolhido.format(context));
+                            Navigator.pop(context, MaterialPageRoute(builder: (context) => HomePage()));
                           },
                           icon: Icon(Icons.add),
                           label: Text("Adicionar tarefa"))
