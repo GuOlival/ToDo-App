@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: pageColor.backgroundGradient(),
+      decoration: pageColor.backgroundTaskGradient(),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Tarefas a fazer"),

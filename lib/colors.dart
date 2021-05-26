@@ -4,6 +4,18 @@ class pageColors
 {
     Color backgroundColor = const Color(0xFF996DC7);
 
+    backgroundTaskGradient(){
+      return new BoxDecoration(
+          gradient: new LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF0087D7),
+                Color(0xFF004C71),
+              ]
+          )
+      );
+    }
     backgroundGradient(){
         return new BoxDecoration(
             gradient: new LinearGradient(
