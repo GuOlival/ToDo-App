@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             ]
           ),
         body: StreamBuilder(
-          stream: firestore.collection(auth.currentUser.uid).snapshots(),
+          stream: firestore.collection(auth.currentUser.uid).orderBy('dia').orderBy('horario').snapshots(),
           builder: (context, snapshot){
             if(snapshot.hasData) {
               return ListView.builder(
