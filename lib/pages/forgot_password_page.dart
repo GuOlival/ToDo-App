@@ -5,6 +5,7 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/pages/sign_in_page.dart';
 import '../authentication_service.dart';
+import '../colors.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key key}) : super(key: key);
@@ -16,19 +17,11 @@ class ForgotPasswordPage extends StatefulWidget {
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
+  pageColors pageColor = new pageColors();
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xFF0093E9),
-                Color(0xff80D0C7),
-              ]
-          )
-      ),
+      decoration: pageColor.backgroundGradient(),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
