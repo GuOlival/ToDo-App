@@ -1,6 +1,6 @@
 # ToDo Application
 
-Application made with Flutter that store tasks added by authenticated users
+Application made with Flutter that store tasks at firestore cloud added by authenticated users
 
 ## Available features
 
@@ -14,4 +14,4 @@ Application made with Flutter that store tasks added by authenticated users
 -   Register system
 -   Recover password
 
-<img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-200742.png"> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223445.png"> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223521.png"> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223535.png"> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223547.png">
+<img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-200742.png"> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223445.png" width=300 height=300> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223521.png"> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223535.png"> <img src="https://github.com/GuOlival/ToDo-App/blob/main/scr/Screenshot_20210526-223547.png">
