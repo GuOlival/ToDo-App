@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             ]
           ),
         body: StreamBuilder(
-          stream: firestore.collection(auth.currentUser.uid).orderBy('dia').orderBy('horario').snapshots(),
+          stream: firestore.collection('users').doc(auth.currentUser.uid).collection('tasks').orderBy('ano').orderBy('mes').orderBy('dia').orderBy('horario').snapshots(),
           builder: (context, snapshot){
             if(snapshot.hasData) {
               return ListView.builder(
@@ -98,9 +98,9 @@ class _HomePageState extends State<HomePage> {
                   return Dismissible(
                     onDismissed: (direction){
                       setState(() {
-                        DocumentReference docRe = firestore.collection(auth.currentUser.uid).doc(documentSnapshot["todoTitle"]);
-                        docRe.delete().whenComplete(() => print(documentSnapshot["todoTitle"] +" deleted"));
-                        //deleteTodos();
+                        //DocumentReference docRe = firestore.collection("user").doc(auth.currentUser.uid).collection('tasks').doc(documentSnapshot["todoTitle"]);
+                        //docRe.delete().whenComplete(() => print(documentSnapshot["todoTitle"] +" deleted"));
+                        comando.deleteTodos(documentSnapshot["todoTitle"],auth.currentUser.uid);
                       });
                       ScaffoldMessenger.of(context)
                           .showSnackBar(SnackBar(content: Text(documentSnapshot["todoTitle"] + ' dismissed')));
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(8)
                       ),
                       child: ListTile(
-                        title: Text("${documentSnapshot["dia"]} - "
+                        title: Text("${documentSnapshot["dia"]}-${documentSnapshot["mes"]}-${documentSnapshot["ano"]} - "
                             "${documentSnapshot["horario"]} - "
                             "${documentSnapshot["todoTitle"]}"),
                         trailing: IconButton(

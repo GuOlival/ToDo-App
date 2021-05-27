@@ -64,7 +64,7 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
                       ),
                     ),
                     Container(
-                        child: Text("Dia escolhido ${DateFormat('dd-MM-yyyy').format(diaEscolhido)}"),
+                        child: Text("Dia escolhido ${DateFormat('yyyy-mm-dd').format(diaEscolhido)}"),
                         decoration: new BoxDecoration(
                         gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -127,8 +127,11 @@ class _CreateTaskPageState extends State<CreateTaskPage> {
                             metodo.createTodos(
                               taskController.text,
                               auth.currentUser.uid,
-                              DateFormat('dd-MM-yyyy').format(diaEscolhido),
-                              horarioEscolhido.format(context));
+                              DateFormat('dd').format(diaEscolhido),
+                              horarioEscolhido.format(context),
+                              DateFormat('yyyy').format(diaEscolhido),
+                              DateFormat('MM').format(diaEscolhido),
+                            );
                             Navigator.pop(context, MaterialPageRoute(builder: (context) => HomePage()));
                           },
                           icon: Icon(Icons.add),

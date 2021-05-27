@@ -37,6 +37,7 @@ dependencies:
   form_field_validator: ^1.1.0
   flutter_modular: ^3.2.2+1
   intl: ^0.17.0
+  flutter_launcher_icons: ^0.9.0
 
 
 dev_dependencies:
